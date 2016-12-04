@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		361033301DF47487009114A6 /* PokemonDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3610332F1DF47487009114A6 /* PokemonDetailVC.swift */; };
 		36FB12AE1DEB4EB100EA744E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FB12AD1DEB4EB100EA744E /* AppDelegate.swift */; };
 		36FB12B01DEB4EB100EA744E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FB12AF1DEB4EB100EA744E /* ViewController.swift */; };
 		36FB12B31DEB4EB100EA744E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36FB12B11DEB4EB100EA744E /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3610332F1DF47487009114A6 /* PokemonDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokemonDetailVC.swift; sourceTree = "<group>"; };
 		36FB12AA1DEB4EB100EA744E /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36FB12AD1DEB4EB100EA744E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36FB12AF1DEB4EB100EA744E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				36FB12AF1DEB4EB100EA744E /* ViewController.swift */,
+				3610332F1DF47487009114A6 /* PokemonDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				36FB12C61DEB567A00EA744E /* PokeCell.swift in Sources */,
 				36FB12B01DEB4EB100EA744E /* ViewController.swift in Sources */,
 				36FB12C81DEB5D1B00EA744E /* CSV.swift in Sources */,
+				361033301DF47487009114A6 /* PokemonDetailVC.swift in Sources */,
 				36FB12AE1DEB4EB100EA744E /* AppDelegate.swift in Sources */,
 				36FB12C31DEB500E00EA744E /* Pokemon.swift in Sources */,
 			);
@@ -363,6 +367,7 @@
 				36FB12BE1DEB4EB100EA744E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
