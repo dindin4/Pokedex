@@ -28,7 +28,12 @@ class PokemonDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        print(pokemon.name)
+        nameLabel.text = pokemon.name
+        mainImage.image = UIImage(named: "\(pokemon.pokedexID)")
+        
+        pokemon.downloadPokemonDetails { 
+            // this will be called when download is done 
+        }
     }
 
     @IBAction func backButtonPressed(_ sender: Any) {
