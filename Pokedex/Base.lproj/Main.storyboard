@@ -35,8 +35,19 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xek-Xc-nuE">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0r0-x8-l1F">
+                                        <rect key="frame" x="345" y="26" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="22" id="Kz0-rB-30n"/>
+                                            <constraint firstAttribute="height" constant="22" id="cWh-xV-EK0"/>
+                                        </constraints>
+                                        <state key="normal" image="music"/>
+                                        <connections>
+                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wTv-vf-QO7"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uH5-ZL-zMf">
-                                        <rect key="frame" x="124" y="8" width="126" height="40"/>
+                                        <rect key="frame" x="124" y="17" width="126" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="126" id="h9A-VD-LuK"/>
                                             <constraint firstAttribute="height" constant="40" id="idW-36-fmg"/>
@@ -45,24 +56,13 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0r0-x8-l1F">
-                                        <rect key="frame" x="335" y="12" width="32" height="32"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="32" id="Kz0-rB-30n"/>
-                                            <constraint firstAttribute="height" constant="32" id="cWh-xV-EK0"/>
-                                        </constraints>
-                                        <state key="normal" image="music"/>
-                                        <connections>
-                                            <action selector="musicButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wTv-vf-QO7"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803921568627" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="uH5-ZL-zMf" firstAttribute="centerY" secondItem="xek-Xc-nuE" secondAttribute="centerY" id="HbA-B8-EK7"/>
+                                    <constraint firstItem="uH5-ZL-zMf" firstAttribute="centerY" secondItem="xek-Xc-nuE" secondAttribute="centerY" constant="9" id="HbA-B8-EK7"/>
                                     <constraint firstItem="uH5-ZL-zMf" firstAttribute="centerX" secondItem="xek-Xc-nuE" secondAttribute="centerX" id="QLF-Ep-KF5"/>
                                     <constraint firstAttribute="height" constant="56" id="WxF-iz-FdD"/>
-                                    <constraint firstItem="0r0-x8-l1F" firstAttribute="top" secondItem="xek-Xc-nuE" secondAttribute="top" constant="12" id="dgX-z5-lZn"/>
+                                    <constraint firstItem="0r0-x8-l1F" firstAttribute="top" secondItem="xek-Xc-nuE" secondAttribute="top" constant="26" id="dgX-z5-lZn"/>
                                     <constraint firstAttribute="trailing" secondItem="0r0-x8-l1F" secondAttribute="trailing" constant="8" id="ftO-cv-FCv"/>
                                 </constraints>
                             </view>
@@ -174,10 +174,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9aK-9X-CeF">
-                                        <rect key="frame" x="8" y="17" width="27" height="28"/>
+                                        <rect key="frame" x="8" y="19" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="OeX-bE-Nag"/>
-                                            <constraint firstAttribute="width" constant="27" id="Zvv-9R-Igf"/>
+                                            <constraint firstAttribute="height" constant="25" id="OeX-bE-Nag"/>
+                                            <constraint firstAttribute="width" constant="25" id="Zvv-9R-Igf"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
                                         <connections>
@@ -192,7 +192,7 @@
                                     <constraint firstAttribute="height" constant="56" id="Rzb-Dk-hFW"/>
                                     <constraint firstItem="ogh-iA-t6U" firstAttribute="centerX" secondItem="N9t-PL-jke" secondAttribute="centerX" id="Zaq-d0-EKB"/>
                                     <constraint firstItem="9aK-9X-CeF" firstAttribute="leading" secondItem="N9t-PL-jke" secondAttribute="leading" constant="8" id="obY-02-mn5"/>
-                                    <constraint firstAttribute="bottom" secondItem="9aK-9X-CeF" secondAttribute="bottom" constant="11" id="vjk-P0-9dD"/>
+                                    <constraint firstAttribute="bottom" secondItem="9aK-9X-CeF" secondAttribute="bottom" constant="12" id="vjk-P0-9dD"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="hMW-k0-b3x">
