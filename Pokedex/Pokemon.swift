@@ -18,7 +18,9 @@ class Pokemon {
     private var _height:String!
     private var _weight:String!
     private var _attack:String!
+    private var _nextEvolutionID:String!
     private var _nextEvolutionText:String!
+    private var _nextEvolutionLevel:String!
     private var _pokemonURL:String!
     
     var name:String {
@@ -29,6 +31,87 @@ class Pokemon {
         return _pokedexID
     }
     
+    var description: String {
+        get {
+            if _description == nil {
+                return ""
+            }
+            return _description
+        }
+    }
+    
+    var type: String {
+        get {
+            if _type == nil {
+                return ""
+            }
+            return _type
+        }
+    }
+    
+    var defence: String {
+        get {
+            if _defense == nil {
+                return ""
+            }
+            return _defense
+        }
+    }
+    
+    var height: String {
+        get {
+            if _height == nil {
+                return ""
+            }
+            return _height
+        }
+    }
+    
+    var weight: String {
+        get {
+            if _weight == nil {
+                return ""
+            }
+            return _weight
+        }
+    }
+    
+    var attack: String {
+        get {
+            if _attack == nil {
+                return ""
+            }
+            return _attack
+        }
+    }
+    
+    var nextEvolutionID: String {
+        get {
+            if _nextEvolutionID == nil {
+                return ""
+            }
+            return _nextEvolutionID
+        }
+    }
+    
+    var nextEvolutionText: String {
+        get {
+            if _nextEvolutionText == nil {
+                return ""
+            }
+            return _nextEvolutionText
+        }
+    }
+    
+    var nextEvolutionLevel: String {
+        get {
+            if _nextEvolutionLevel == nil {
+                return ""
+            }
+            return _nextEvolutionLevel
+        }
+    }
+    
     init(name:String, pokedexID: Int) {
         self._name = name
         self._pokedexID = pokedexID
@@ -36,7 +119,7 @@ class Pokemon {
         self._pokemonURL = "\(URL_BASE)\(URL_POKEMON)\(pokedexID)/"
     }
     
-    func downloadPokemonDetails(completed:DownloadComplete) {
+    func downloadPokemonDetails(completed:@escaping DownloadComplete) {
         Alamofire.request(self._pokemonURL).responseJSON { (response) in
             let result = response.result
             
@@ -67,6 +150,46 @@ class Pokemon {
                     }
                 } else {
                     self._type = ""
+                }
+                
+                if let descArr = dict["descriptions"] as? [Dictionary<String,String>], descArr.count > 0 {
+                    if let url = descArr[0]["resource_uri"] {
+                        Alamofire.request("\(URL_BASE)\(url)").responseJSON(completionHandler: { (response) in
+                            let desResult = response.result
+                            if let descDict = desResult.value as? Dictionary<String,AnyObject> {
+                                if let description = descDict["description"] as? String {
+                                    self._description = description
+                                    print(self._description)
+                                }
+                            }
+                            completed()
+                        })
+                    }
+                } else {
+                    self._description = ""
+                }
+                
+                if let evolutions = dict["evolutions"] as? [Dictionary<String, AnyObject>], evolutions.count > 0 {
+                    if let to = evolutions[0]["to"] as? String {
+                        
+                        // Cannot support mega pokemon right now
+                        if to.range(of: "mega") == nil {
+                            if let uri = evolutions[0]["resource_uri"] as? String {
+                                let newStr = uri.replacingOccurrences(of: "/api/v1/pokemon/", with: "")
+                                let num = newStr.replacingOccurrences(of: "/", with: "")
+                                self._nextEvolutionID = num
+                                self._nextEvolutionText = to
+                                
+                                if let level = evolutions[0]["level"] as? Int {
+                                    self._nextEvolutionLevel = "\(level)"
+                                }
+                                
+                                print(self._nextEvolutionLevel)
+                                print(self._nextEvolutionText)
+                                print(self._nextEvolutionID)
+                            }
+                        }
+                    }
                 }
             }
         }
