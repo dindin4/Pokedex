@@ -59,6 +59,17 @@ class PokemonDetailVC: UIViewController {
             evolutionLabel.text = str
         }
     }
+    
+    @IBAction func tabChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            descriptionLabel.text = pokemon.description
+        case 1:
+            descriptionLabel.text = pokemon.moves
+        default:
+            break
+        }
+    }
 
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)

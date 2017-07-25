@@ -14,6 +14,7 @@ class Pokemon {
     private var _pokedexID: Int!
     private var _description: String!
     private var _type:String!
+    private var _moves:String!
     private var _defense:String!
     private var _height:String!
     private var _weight:String!
@@ -46,6 +47,15 @@ class Pokemon {
                 return ""
             }
             return _type
+        }
+    }
+    
+    var moves:String {
+        get {
+            if _moves == nil {
+                return ""
+            }
+            return _moves
         }
     }
     
@@ -152,6 +162,22 @@ class Pokemon {
                     self._type = ""
                 }
                 
+                if let moves = dict["moves"] as? [Dictionary<String, AnyObject>], moves.count > 0 {
+                    if let move = moves[0]["name"] {
+                        self._moves = move as! String
+                    }
+                    if moves.count > 1 {
+                        // Show the top 20
+                        for x in 1..<19 {
+                            if let move = moves[x]["name"] {
+                                self._moves! += ", \(move)"
+                            }
+                        }
+                    }
+                } else {
+                    self._moves = ""
+                }
+                
                 if let descArr = dict["descriptions"] as? [Dictionary<String,String>], descArr.count > 0 {
                     if let url = descArr[0]["resource_uri"] {
                         Alamofire.request("\(URL_BASE)\(url)").responseJSON(completionHandler: { (response) in
@@ -159,7 +185,6 @@ class Pokemon {
                             if let descDict = desResult.value as? Dictionary<String,AnyObject> {
                                 if let description = descDict["description"] as? String {
                                     self._description = description
-                                    print(self._description)
                                 }
                             }
                             completed()
@@ -183,10 +208,6 @@ class Pokemon {
                                 if let level = evolutions[0]["level"] as? Int {
                                     self._nextEvolutionLevel = "\(level)"
                                 }
-                                
-                                print(self._nextEvolutionLevel)
-                                print(self._nextEvolutionText)
-                                print(self._nextEvolutionID)
                             }
                         }
                     }
