@@ -18,7 +18,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var filteredPokemeon = [Pokemon]()
     var musicPlayer: AVAudioPlayer!
     var isSearchMode = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,7 +89,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             poke = pokemon[indexPath.row]
         }
         
-        performSegue(withIdentifier: "PokemonDetailVC", sender: poke)
+        poke.downloadPokemonDetails {
+            self.performSegue(withIdentifier: "PokemonDetailVC", sender: poke)
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,7 +110,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return CGSize(width: 90, height: 90)
     }
     
-    //MARK: SearchBar Delegate 
+    //MARK: SearchBar Delegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)

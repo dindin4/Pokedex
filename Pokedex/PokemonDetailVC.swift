@@ -33,10 +33,7 @@ class PokemonDetailVC: UIViewController {
         mainImage.image = img
         currentEvoImage.image = img
         
-        pokemon.downloadPokemonDetails { 
-            // this will be called when download is done 
-            self.updateUI()
-        }
+        self.updateUI()
     }
     
     func updateUI() {
